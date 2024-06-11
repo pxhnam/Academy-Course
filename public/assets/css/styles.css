@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+    /* --font: "Be Vietnam Pro"; */
+    --font: "Poppins", "Be Vietnam Pro";
+}
+* {
+    font-family: var(--font);
+}
+#main {
+    margin-top: 60px;
+}
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    display: none;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+}
+.spinner-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.btn-cart {
+    position: relative;
+    font-size: 18px;
+}
+#count-cart {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 12px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2.5px 6px 0px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.invalid-feedback {
+    margin-top: -18px;
+}
+.pic-in-cart {
+    width: 110px;
+    height: 110px;
+    border-radius: 5px;
+}
+/*
+input,
+select,
+textarea,
+button,
+.page-link {
+    box-shadow: none !important;
+} */
+/* Toast Custom */
+
+#toast {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 999999;
+}
+
+.toast-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 15px 0;
+    min-width: 300px;
+    max-width: 350px;
+    border-left: 3px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.toast--success {
+    border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+    color: #47d864;
+}
+
+.toast--info {
+    border-color: #2f86eb;
+}
+
+.toast--info .toast__icon {
+    color: #2f86eb;
+}
+
+.toast--warning {
+    border-color: #ffc021;
+}
+
+.toast--warning .toast__icon {
+    color: #ffc021;
+}
+
+.toast--error {
+    border-color: #ff623d;
+}
+
+.toast--error .toast__icon {
+    color: #ff623d;
+}
+
+.toast-box + .toast-box {
+    margin-top: 24px;
+}
+
+.toast__icon {
+    font-size: 24px;
+}
+
+.toast__icon,
+.toast__close {
+    display: flex;
+    padding: 0 16px;
+}
+
+.toast__body {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.toast__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.toast__msg {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.toast__close {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+/* Toast Custom */
