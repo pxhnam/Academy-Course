@@ -21,7 +21,9 @@ return new class extends Migration
             $table->integer('time_to_complete');
             $table->string('description');
             $table->decimal('starts', 3, 2);
+            $table->integer('fake_cost');
             $table->integer('cost');
+            $table->integer('duration');
             $table->timestamps();
         });
     }

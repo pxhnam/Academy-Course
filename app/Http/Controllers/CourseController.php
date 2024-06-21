@@ -15,12 +15,9 @@ class CourseController extends Controller
             'name',
             'lecturer',
             'thumbnail',
-            'num_of_chapters',
-            'num_of_lessons',
-            'time_to_complete',
-            'description',
-            'starts',
-            'cost'
+            'fake_cost',
+            'cost',
+            'duration'
         )
             ->get();
         if (!$courses->isEmpty()) {
@@ -44,12 +41,9 @@ class CourseController extends Controller
             'name',
             'lecturer',
             'thumbnail',
-            'num_of_chapters',
-            'num_of_lessons',
-            'time_to_complete',
-            'description',
-            'starts',
-            'cost'
+            'fake_cost',
+            'cost',
+            'duration'
         )
             ->where('id', $id)
             ->first();
@@ -69,5 +63,26 @@ class CourseController extends Controller
     public function check($id)
     {
         return Course::where('id', $id)->exists();
+    }
+    public function getRandomCoursesNotInCart($ids)
+    {
+        $idsArray = explode(',', $ids);
+        $randomCourses = Course::whereNotIn('id', $idsArray)
+            ->select(
+                'id',
+                'name',
+                'lecturer',
+                'thumbnail',
+                'fake_cost',
+                'cost',
+                'duration'
+            )
+            ->inRandomOrder()
+            ->limit(10)
+            ->get();
+        foreach ($randomCourses as $course) {
+            $course->thumbnail = asset('storage/images/' . $course->thumbnail);
+        }
+        return $randomCourses;
     }
 }

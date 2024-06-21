@@ -13,4 +13,5 @@ Route::prefix('courses')->group(function () {
     Route::get('', [CourseController::class, 'list']);
     Route::get('find/{id}', [CourseController::class, 'show']);
     Route::get('check/{id}', [CourseController::class, 'check']);
+    Route::get('randomCoursesNotInCart/{ids}', [CourseController::class, 'getRandomCoursesNotInCart']);
 });
