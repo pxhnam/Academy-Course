@@ -22,7 +22,7 @@ class CourseController extends Controller
             ->get();
         if (!$courses->isEmpty()) {
             foreach ($courses as $course) {
-                $course->thumbnail = asset('storage/images/' . $course->thumbnail);
+                $course->thumbnail = asset('images/' . $course->thumbnail);
             }
             return response()->json([
                 'success' => true,
@@ -48,7 +48,7 @@ class CourseController extends Controller
             ->where('id', $id)
             ->first();
         if ($course) {
-            $course->thumbnail = asset('storage/images/' . $course->thumbnail);
+            $course->thumbnail = asset('images/' . $course->thumbnail);
             return response()->json([
                 'success' => true,
                 'course' => $course
@@ -81,7 +81,7 @@ class CourseController extends Controller
             ->limit(10)
             ->get();
         foreach ($randomCourses as $course) {
-            $course->thumbnail = asset('storage/images/' . $course->thumbnail);
+            $course->thumbnail = asset('images/' . $course->thumbnail);
         }
         return $randomCourses;
     }
